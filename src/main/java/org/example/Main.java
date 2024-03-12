@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         Polynomial polynomial=new Polynomial();
-        String input="3.2x^4-10x^2+5x-2";
+        String input="2x+2";
         System.out.println(input);
         polynomial.readPolynomial(input);
-
+        polynomial.printPolynomial();
     }
 }
