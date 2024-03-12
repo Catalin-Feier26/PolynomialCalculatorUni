@@ -3,10 +3,21 @@ import java.util.HashMap;
 import java.util.regex.*;
 public class Polynomial
 {
-    public HashMap<Integer,Double> polynom;
-    public Polynomial(){
+    private HashMap<Integer,Double> polynom;
+    public Polynomial()
+    {
         polynom=new HashMap<>();
     }
+    public HashMap<Integer,Double> getPolynom()
+    {
+        return polynom;
+    }
+
+    public void setPolynom(HashMap<Integer, Double> polynom)
+    {
+        this.polynom = polynom;
+    }
+
     public void readPolynomial(String input)
     {
         input=input.replace(" ","");
