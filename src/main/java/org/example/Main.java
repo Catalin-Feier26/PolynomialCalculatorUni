@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         Polynomial polynomial=new Polynomial();
-        String input="2x+2";
+        String input="6 x ^ 7 + 3 x ^ 2 - 4 x            - 2          ";
         System.out.println(input);
         polynomial.readPolynomial(input);
         polynomial.printPolynomial();

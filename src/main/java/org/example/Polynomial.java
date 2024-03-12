@@ -9,11 +9,11 @@ public class Polynomial
     }
     public void readPolynomial(String input)
     {
+        input=input.replace(" ","");
         if(!checkValidInput(input))
             throw new RuntimeException("Invalid input");
 
         input=input.replace("-","+-");
-        input=input.replace(" ","");
         String[] splitInput=input.split("\\+");
 
         for(String arr: splitInput)
