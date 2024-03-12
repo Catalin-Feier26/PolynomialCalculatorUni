@@ -35,11 +35,27 @@ public class Operation {
         result.setPolynom(subtractionResult);
         return result;
     }
-    public static Polynomial multiplication(Polynomial poli1, Polynomial poli2)
-    {
-        Polynomial result= new Polynomial();
+    public static Polynomial multiplication(Polynomial poli1, Polynomial poli2) {
+        HashMap<Integer, Double> mult = new HashMap<>();
+        for (int power1 : poli1.getPolynom().keySet())
+        {
+            double coefficient1 = poli1.getPolynom().get(power1);
+            for (int power2 : poli2.getPolynom().keySet())
+            {
+                double coefficient2 = poli2.getPolynom().get(power2);
+                double coefficient = coefficient1 * coefficient2;
+                int newPower = power1 + power2;
+                mult.put(newPower, mult.getOrDefault(newPower, 0.0) + coefficient);
+                if(mult.get(newPower)==0.0){
+                    mult.remove(newPower);
+                }
+            }
+        }
+        Polynomial result = new Polynomial();
+        result.setPolynom(mult);
         return result;
     }
+
     public static Polynomial division(Polynomial poli1, Polynomial poli2)
     {
         Polynomial result= new Polynomial();
