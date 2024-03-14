@@ -26,6 +26,8 @@ public class Polynomial
         String[] splitInput=input.split("\\+");
         for(String arr: splitInput)
         {
+            if(arr.isEmpty())
+                continue;
             String[] monomials=arr.split("\\^");
             double coefficient;
             int power;
@@ -33,11 +35,14 @@ public class Polynomial
             {
                 if(monomials[0].contains("x"))
                 {
-                    if(!monomials[0].equals("x")) {
+                    if(!monomials[0].equals("x") && !monomials[0].equals("-x")) {
                         monomials[0] = monomials[0].replace("x", "");
                         coefficient = Double.parseDouble(monomials[0]);
                     } else {
-                        coefficient=1.0;
+                        if(monomials[0].equals("x"))
+                            coefficient=1.0;
+                        else
+                            coefficient=-1.0;
                     }
                     power = 1;
                 } else {
@@ -47,7 +52,9 @@ public class Polynomial
             } else {
                 if(monomials[0].equals("x")) {
                     coefficient=1;
-                } else {
+                }else if(monomials[0].equals("-x"))
+                    coefficient=-1.0;
+                else {
                     monomials[0] = monomials[0].replace("x", "");
                     coefficient = Double.parseDouble(monomials[0]);
                 }
@@ -59,36 +66,78 @@ public class Polynomial
 
     public void printPolynomial()
     {
-        for(int power: polynom.keySet())
+        System.out.println(this);
+    }
+    public String toString(){
+        String result="";
+        for(Integer power: this.polynom.keySet())
         {
-            double coeff=polynom.get(power);
-            if(power==0)
-            {
-                if(coeff>0)
-                    System.out.print("+" + coeff );
-                else
-                    System.out.print(coeff);
+            double coefficient=polynom.get(power);
+            if(power==0){
+                if(result.isEmpty())
+                    result=result.concat(checkCoefficient(coefficient));
+                else{
+                    if(coefficient>0)
+                        result=result.concat("+"+checkCoefficient(coefficient));
+                    else
+                        result=result.concat(checkCoefficient(coefficient));
+                }
             }
-            else if(power == 1)
-            {
-                if(coeff>0)
-                    System.out.print("+" + coeff+"x");
-                else
-                    System.out.print(coeff+"x");
-            }
-            else
-            {
-                if(coeff>0)
-                    System.out.print("+" + coeff+"x^" + power );
-                else
-                    System.out.print(coeff+"x^" + power);
+            else if(power==1){
+                if(result.isEmpty())
+                    if(!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
+                        result=result.concat(checkCoefficient(coefficient)+"x");
+                    else
+                        if(checkCoefficient(coefficient).contains("-"))
+                            result=result.concat("-x");
+                        else
+                            result=result.concat("x");
+                else{
+                    if(coefficient==1)
+                        result=result.concat("+x");
+                    if(coefficient==-1)
+                        result=result.concat("-x");
+                    if(coefficient > 0 && coefficient != 1)
+                        result=result.concat("+"+checkCoefficient(coefficient)+"x");
+                    if(coefficient<0 && coefficient != -1)
+                        result=result.concat(checkCoefficient(coefficient)+"x");
+                }
+            }else{
+                if(result.isEmpty())
+                    if(!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
+                        result=result.concat(checkCoefficient(coefficient)+"x^"+power);
+                    else
+                    if(checkCoefficient(coefficient).contains("-"))
+                        result=result.concat("-x^"+power);
+                    else
+                        result=result.concat("x^"+power);
+                else{
+                    if(coefficient==1)
+                        result=result.concat("+x^"+power);
+                    if(coefficient==-1)
+                        result=result.concat("-x^"+power);
+                    if(coefficient>0 && coefficient!=1)
+                        result=result.concat("+"+checkCoefficient(coefficient)+"x^"+power);
+                    if(coefficient<0 && coefficient!=-1)
+                        result=result.concat(checkCoefficient(coefficient)+"x^"+power);
+                }
             }
         }
+        return result;
+    }
+    private String checkCoefficient(double c)
+    {
+        if(c==0)
+            return "";
+        if(c==(int) c)
+            return String.valueOf((int) c);
+        return String.valueOf(c);
     }
     private Boolean checkValidInput(String input)
     {
         String polynomPat= "([+-]?\\d*(x)?(\\^\\d+)?)+";
-        Pattern pattern= Pattern.compile(polynomPat);
+        String pat="([+-]?\\d*(\\.\\d*)?(x)?(\\^\\d+)?)+";
+        Pattern pattern= Pattern.compile(pat);
         Matcher matcher= pattern.matcher(input);
 
         return matcher.matches();

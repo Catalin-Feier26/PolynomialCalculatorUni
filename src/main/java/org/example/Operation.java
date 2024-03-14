@@ -56,9 +56,15 @@ public class Operation {
         return result;
     }
 
-    public static Polynomial division(Polynomial poli1, Polynomial poli2)
+    public static Polynomial[] division(Polynomial poli1, Polynomial poli2)
     {
-        Polynomial result= new Polynomial();
+        Polynomial[] result = new Polynomial[2];
+        HashMap<Integer, Double> quotient=new HashMap<>();
+        HashMap<Integer, Double> remainder=new HashMap<>();
+
+
+        result[0].setPolynom(quotient);
+        result[1].setPolynom(remainder);
         return result;
     }
     public static Polynomial integration(Polynomial poli)
