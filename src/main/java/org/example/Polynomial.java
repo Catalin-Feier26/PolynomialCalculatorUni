@@ -135,7 +135,6 @@ public class Polynomial
     }
     private Boolean checkValidInput(String input)
     {
-        String polynomPat= "([+-]?\\d*(x)?(\\^\\d+)?)+";
         String pat="([+-]?\\d*(\\.\\d*)?(x)?(\\^\\d+)?)+";
         Pattern pattern= Pattern.compile(pat);
         Matcher matcher= pattern.matcher(input);
