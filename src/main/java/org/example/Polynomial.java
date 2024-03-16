@@ -23,6 +23,7 @@ public class Polynomial
     }
 
     public void readPolynomial(String input) {
+        HashMap<Integer,Double> readPolynom=new HashMap<>();
         input=input.replace(" ","");
         if(!checkValidInput(input))
             throw new RuntimeException("Invalid input");
@@ -64,9 +65,10 @@ public class Polynomial
                 }
                 power=Integer.parseInt(monomials[1]);
             }
-             polynom.put(power,polynom.getOrDefault(power, 0.0) + coefficient);
+             readPolynom.put(power,readPolynom.getOrDefault(power, 0.0) + coefficient);
         }
         degree=getMaxPower();
+        this.polynom=readPolynom;
     }
 
     public void printPolynomial()
@@ -138,8 +140,9 @@ public class Polynomial
             return String.valueOf((int) c);
         return String.valueOf(c);
     }
-    private Boolean checkValidInput(String input)
+    public static Boolean checkValidInput(String input)
     {
+        input=input.replace(" ","");
         String pat="([+-]?\\d*(\\.\\d*)?(x)?(\\^\\d+)?)+";
         Pattern pattern= Pattern.compile(pat);
         Matcher matcher= pattern.matcher(input);

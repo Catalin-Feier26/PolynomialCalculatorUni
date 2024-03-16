@@ -69,31 +69,37 @@ public class Operation {
     {
         Polynomial quotient= new Polynomial();
         Polynomial remainder= new Polynomial();
+        if(numerator.getDegree()<denominator.getDegree())
+            return new Polynomial[] {quotient,remainder};
 
         Polynomial copyNumerator= new Polynomial();
         copyNumerator=numerator;
-        while(copyNumerator.getDegree()>=denominator.getDegree())
-        {
-            int powerNum=copyNumerator.getMaxPower();
-            int powerdDenom=denominator.getMaxPower();
+        if(!denominator.toString().equals("0")) {
+            while (copyNumerator.getDegree() >= denominator.getDegree()) {
+                if (copyNumerator.toString().equals("0"))
+                    break;
+                int powerNum = copyNumerator.getMaxPower();
+                int powerdDenom = denominator.getMaxPower();
 
-            double coeffNum=copyNumerator.getPolynom().get(powerNum);
-            double coeffDenom=denominator.getPolynom().get(powerdDenom);
+                double coeffNum = copyNumerator.getPolynom().get(powerNum);
+                double coeffDenom = denominator.getPolynom().get(powerdDenom);
 
-            double coeffQuo=coeffNum / coeffDenom;
-            int powerQuo=powerNum-powerdDenom;
+                double coeffQuo = coeffNum / coeffDenom;
+                int powerQuo = powerNum - powerdDenom;
 
-            Polynomial auxQuotient=new Polynomial();
-            auxQuotient.getPolynom().put(powerQuo,coeffQuo);
-            quotient=addition(quotient,auxQuotient);
+                Polynomial auxQuotient = new Polynomial();
+                auxQuotient.getPolynom().put(powerQuo, coeffQuo);
+                quotient = addition(quotient, auxQuotient);
 
-            Polynomial quoDenomProduct=new Polynomial();
-            quoDenomProduct=multiplication(denominator,auxQuotient);
-            copyNumerator=subtraction(copyNumerator,quoDenomProduct);
-        }
-        remainder=copyNumerator;
+                Polynomial quoDenomProduct = new Polynomial();
+                quoDenomProduct = multiplication(denominator, auxQuotient);
+                copyNumerator = subtraction(copyNumerator, quoDenomProduct);
+            }
+            remainder = copyNumerator;
+            return new Polynomial[]{quotient, remainder};
+            }
         return new Polynomial[]{quotient,remainder};
-    }
+        }
     public static Polynomial integration(Polynomial poli)
     {
         HashMap<Integer,Double> integrate=new HashMap<>();

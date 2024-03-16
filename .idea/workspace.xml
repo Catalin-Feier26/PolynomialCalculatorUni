@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b261cf62-7f8a-4a9c-acf4-9d09c0f59e20" name="Changes" comment="Regex fix + toString method">
+    <list default="true" id="b261cf62-7f8a-4a9c-acf4-9d09c0f59e20" name="Changes" comment="removing terms with 0 coefficient form Polynomial">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/CustomPopUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GraphicInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" afterDir="false" />
@@ -76,7 +78,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2704692",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -106,7 +108,9 @@
       <workItem from="1710482759478" duration="151000" />
       <workItem from="1710489877230" duration="1322000" />
       <workItem from="1710491593906" duration="2792000" />
-      <workItem from="1710598656818" duration="7033000" />
+      <workItem from="1710598656818" duration="16681000" />
+      <workItem from="1710617277232" duration="676000" />
+      <workItem from="1710617973464" duration="6309000" />
     </task>
     <task id="LOCAL-00001" summary="some changes for the input">
       <option name="closed" value="true" />
@@ -180,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710603065733</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="removing terms with 0 coefficient form Polynomial">
+      <option name="closed" value="true" />
+      <created>1710605862826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710605862826</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,17 +217,7 @@
     <MESSAGE value="idk" />
     <MESSAGE value="Multiplication + fixes in reading the Polynomial" />
     <MESSAGE value="Regex fix + toString method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Regex fix + toString method" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="removing terms with 0 coefficient form Polynomial" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing terms with 0 coefficient form Polynomial" />
   </component>
 </project>
