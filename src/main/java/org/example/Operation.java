@@ -74,7 +74,6 @@ public class Operation {
 
         Polynomial copyNumerator= new Polynomial();
         copyNumerator=numerator;
-        if(!denominator.toString().equals("0")) {
             while (copyNumerator.getDegree() >= denominator.getDegree()) {
                 if (copyNumerator.toString().equals("0"))
                     break;
@@ -97,9 +96,7 @@ public class Operation {
             }
             remainder = copyNumerator;
             return new Polynomial[]{quotient, remainder};
-            }
-        return new Polynomial[]{quotient,remainder};
-        }
+    }
     public static Polynomial integration(Polynomial poli)
     {
         HashMap<Integer,Double> integrate=new HashMap<>();

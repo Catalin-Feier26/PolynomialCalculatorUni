@@ -2,12 +2,8 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.util.HashMap;
-
 
 public class GraphicInterface extends JFrame{
     private final JFrame calculatorFrame;
@@ -91,65 +87,58 @@ public class GraphicInterface extends JFrame{
             result.setText(multResult.toString());
             remainder.setText("No remainder");
         });
-        divButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String input1=polinom1.getText();
-                String input2=polinom2.getText();
-                if(!Polynomial.checkValidInput(input1))
-                {
-                    new CustomPopUp(calculatorFrame, "First polynomial is invalid", emerald);
-                    return;
-                }
-                if(!Polynomial.checkValidInput(input2))
-                {
-                    new CustomPopUp(calculatorFrame, "Second polynomial is invalid", emerald);
-                    return;
-                }
-                polynomial1.readPolynomial(input1);
-                polynomial2.readPolynomial(input2);
-                if(polynomial1.getDegree()<polynomial2.getDegree())
-                {
-                    new CustomPopUp(calculatorFrame, "The degree of the first polynomial MUST be higher or equal than the second", emerald);
-                    return;
-                }
-                Polynomial[] res=Operation.division(polynomial1,polynomial2);
+        divButton.addActionListener(e -> {
+            String input1=polinom1.getText();
+            String input2=polinom2.getText();
+            if(!Polynomial.checkValidInput(input1))
+            {
+                new CustomPopUp(calculatorFrame, "First polynomial is invalid", emerald);
+                return;
+            }
+            if(!Polynomial.checkValidInput(input2))
+            {
+                new CustomPopUp(calculatorFrame, "Second polynomial is invalid", emerald);
+                return;
+            }
+            polynomial1.readPolynomial(input1);
+            polynomial2.readPolynomial(input2);
+            if(polynomial1.getDegree()<polynomial2.getDegree())
+            {
+                new CustomPopUp(calculatorFrame, "The degree of the first polynomial MUST be higher or equal than the second", emerald);
+                return;
+            }
+            if(polynomial1.getDegree()>=polynomial2.getDegree()) {
+                Polynomial[] res = Operation.division(polynomial1, polynomial2);
                 result.setText(res[0].toString());
                 remainder.setText(res[1].toString());
             }
         });
 
-        derivButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new CustomPopUp(calculatorFrame, "Enter the polynomial only in the first textBox", emerald);
-                String input1=polinom1.getText();
-                if(!Polynomial.checkValidInput(input1))
-                {
-                    new CustomPopUp(calculatorFrame, "Polynomial is invalid", emerald);
-                    return;
-                }
-                polynomial1.readPolynomial(input1);
-                Polynomial res=Operation.derivation(polynomial1);
-                result.setText(res.toString());
-                remainder.setText("No remainder");
+        derivButton.addActionListener(e -> {
+            new CustomPopUp(calculatorFrame, "Enter the polynomial only in the first textBox", emerald);
+            String input1=polinom1.getText();
+            if(!Polynomial.checkValidInput(input1))
+            {
+                new CustomPopUp(calculatorFrame, "Polynomial is invalid", emerald);
+                return;
             }
+            polynomial1.readPolynomial(input1);
+            Polynomial res=Operation.derivation(polynomial1);
+            result.setText(res.toString());
+            remainder.setText("No remainder");
         });
-        intButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new CustomPopUp(calculatorFrame, "Enter a polynomial only in the first textBox", emerald);
-                String input1=polinom1.getText();
-                if(!Polynomial.checkValidInput(input1))
-                {
-                    new CustomPopUp(calculatorFrame, "Polynomial is invalid", emerald);
-                    return;
-                }
-                polynomial1.readPolynomial(input1);
-                Polynomial res=Operation.integration(polynomial1);
-                result.setText(res.toString());
-                remainder.setText("No remainder");
+        intButton.addActionListener(e -> {
+            new CustomPopUp(calculatorFrame, "Enter a polynomial only in the first textBox", emerald);
+            String input1=polinom1.getText();
+            if(!Polynomial.checkValidInput(input1))
+            {
+                new CustomPopUp(calculatorFrame, "Polynomial is invalid", emerald);
+                return;
             }
+            polynomial1.readPolynomial(input1);
+            Polynomial res=Operation.integration(polynomial1);
+            result.setText(res.toString());
+            remainder.setText("No remainder");
         });
 
         calculatorPanel= createCalculatorPanel(plusButton,subButton,multButton,divButton,derivButton,intButton);

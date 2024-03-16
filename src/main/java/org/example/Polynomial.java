@@ -7,7 +7,7 @@ public class Polynomial
     private int degree;
     public Polynomial()
     {
-        polynom=new HashMap<>();
+        polynom= new HashMap<>();
         degree=0;
     }
     public int getDegree(){return degree;}
@@ -67,13 +67,13 @@ public class Polynomial
             }
              readPolynom.put(power,readPolynom.getOrDefault(power, 0.0) + coefficient);
         }
-        degree=getMaxPower();
         this.polynom=readPolynom;
+        degree=getMaxPower();
     }
 
     public String toString(){
         String result="";
-        HashMap<Integer, Double> aux=this.polynom;
+        HashMap<Integer, Double> aux= new HashMap<>(this.polynom);
         if(!aux.isEmpty()) {
             while (!aux.isEmpty()) {
                 int power=getMax(aux);
