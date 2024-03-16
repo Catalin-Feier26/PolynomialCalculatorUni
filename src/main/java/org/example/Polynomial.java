@@ -149,7 +149,7 @@ public class Polynomial
     {
         Integer maxPower=0;
         for(Integer power: polynom.keySet())
-            if(power>=maxPower)
+            if(power>=maxPower && polynom.get(power)!=0.0)
                 maxPower=power;
         return maxPower;
     }

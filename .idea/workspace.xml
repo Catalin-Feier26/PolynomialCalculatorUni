@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b261cf62-7f8a-4a9c-acf4-9d09c0f59e20" name="Changes" comment="Regex fix + toString method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Polynomial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +104,7 @@
       <workItem from="1710482759478" duration="151000" />
       <workItem from="1710489877230" duration="1322000" />
       <workItem from="1710491593906" duration="2792000" />
-      <workItem from="1710598656818" duration="4319000" />
+      <workItem from="1710598656818" duration="5560000" />
     </task>
     <task id="LOCAL-00001" summary="some changes for the input">
       <option name="closed" value="true" />
@@ -172,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710494179288</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Regex fix + toString method">
+      <option name="closed" value="true" />
+      <created>1710603065733</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710603065733</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
