@@ -4,12 +4,13 @@ import java.util.regex.*;
 public class Polynomial
 {
     private HashMap<Integer,Double> polynom;
-    public int degree;
+    private int degree;
     public Polynomial()
     {
         polynom=new HashMap<>();
         degree=0;
     }
+    public int getDegree(){return degree;}
     public HashMap<Integer,Double> getPolynom()
     {
         return polynom;

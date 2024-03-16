@@ -57,16 +57,34 @@ public class Operation {
         return result;
     }
 
-    public static Polynomial[] division(Polynomial poli1, Polynomial poli2)
+    public static Polynomial[] division(Polynomial numerator, Polynomial denominator)
     {
-        Polynomial[] result = new Polynomial[2];
-        HashMap<Integer, Double> quotient=new HashMap<>();
-        HashMap<Integer, Double> remainder=new HashMap<>();
+        Polynomial quotient= new Polynomial();
+        Polynomial remainder= new Polynomial();
 
+        Polynomial copyNumerator= new Polynomial();
+        copyNumerator=numerator;
+        while(copyNumerator.getDegree()>=denominator.getDegree())
+        {
+            int powerNum=copyNumerator.getMaxPower();
+            int powerdDenom=denominator.getMaxPower();
 
-        result[0].setPolynom(quotient);
-        result[1].setPolynom(remainder);
-        return result;
+            double coeffNum=copyNumerator.getPolynom().get(powerNum);
+            double coeffDenom=denominator.getPolynom().get(powerdDenom);
+
+            double coeffQuo=coeffNum / coeffDenom;
+            int powerQuo=powerNum-powerdDenom;
+
+            Polynomial auxQuotient=new Polynomial();
+            auxQuotient.getPolynom().put(powerQuo,coeffQuo);
+            quotient=addition(quotient,auxQuotient);
+
+            Polynomial quoDenomProduct=new Polynomial();
+            quoDenomProduct=multiplication(denominator,auxQuotient);
+            copyNumerator=subtraction(copyNumerator,quoDenomProduct);
+        }
+        remainder=copyNumerator;
+        return new Polynomial[]{quotient,remainder};
     }
     public static Polynomial integration(Polynomial poli)
     {
