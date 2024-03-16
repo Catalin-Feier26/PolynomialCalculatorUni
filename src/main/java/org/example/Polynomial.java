@@ -71,15 +71,13 @@ public class Polynomial
         this.polynom=readPolynom;
     }
 
-    public void printPolynomial()
-    {
-        System.out.println(this + " with the Degree: " + this.degree);
-    }
     public String toString(){
         String result="";
-        if(!this.polynom.isEmpty()) {
-            for (Integer power : this.polynom.keySet()) {
-                double coefficient = polynom.get(power);
+        HashMap<Integer, Double> aux=this.polynom;
+        if(!aux.isEmpty()) {
+            while (!aux.isEmpty()) {
+                int power=getMax(aux);
+                double coefficient = aux.get(power);
                 if (power == 0) {
                     if (result.isEmpty())
                         result = result.concat(checkCoefficient(coefficient));
@@ -126,11 +124,20 @@ public class Polynomial
                             result = result.concat(checkCoefficient(coefficient) + "x^" + power);
                     }
                 }
+                aux.remove(power);
             }
         }
         else
             result="0";
         return result;
+    }
+    private int getMax(HashMap<Integer,Double> map)
+    {
+        int max=0;
+        for(int pow: map.keySet())
+            if(pow>=max)
+                max=pow;
+        return max;
     }
     private String checkCoefficient(double c)
     {
