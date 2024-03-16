@@ -163,4 +163,12 @@ public class Polynomial
                 maxPower=power;
         return maxPower;
     }
+    public Boolean isZero()
+    {
+        Boolean assumption = true;
+        for(Double coefficient: polynom.values())
+            if(coefficient!=0.0)
+                assumption=false;
+        return assumption;
+    }
 }

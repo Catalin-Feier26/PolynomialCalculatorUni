@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b261cf62-7f8a-4a9c-acf4-9d09c0f59e20" name="Changes" comment="toString method now makes the string in order of the power.">
+    <list default="true" id="b261cf62-7f8a-4a9c-acf4-9d09c0f59e20" name="Changes" comment="Fixed a &quot;bug&quot; where the toString would make my hashMap 0. Fixed division conditions, more GUI fixes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CustomPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CustomPopUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GraphicInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Polynomial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +108,7 @@
       <workItem from="1710491593906" duration="2792000" />
       <workItem from="1710598656818" duration="16681000" />
       <workItem from="1710617277232" duration="676000" />
-      <workItem from="1710617973464" duration="12602000" />
+      <workItem from="1710617973464" duration="13426000" />
     </task>
     <task id="LOCAL-00001" summary="some changes for the input">
       <option name="closed" value="true" />
@@ -207,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710625733715</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed a &quot;bug&quot; where the toString would make my hashMap 0. Fixed division conditions, more GUI fixes.">
+      <option name="closed" value="true" />
+      <created>1710631008419</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1710631008419</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +242,7 @@
     <MESSAGE value="removing terms with 0 coefficient form Polynomial" />
     <MESSAGE value="GUI + Fixes" />
     <MESSAGE value="toString method now makes the string in order of the power." />
-    <option name="LAST_COMMIT_MESSAGE" value="toString method now makes the string in order of the power." />
+    <MESSAGE value="Fixed a &quot;bug&quot; where the toString would make my hashMap 0. Fixed division conditions, more GUI fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a &quot;bug&quot; where the toString would make my hashMap 0. Fixed division conditions, more GUI fixes." />
   </component>
 </project>

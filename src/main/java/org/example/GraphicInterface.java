@@ -107,7 +107,13 @@ public class GraphicInterface extends JFrame{
                 new CustomPopUp(calculatorFrame, "The degree of the first polynomial MUST be higher or equal than the second", emerald);
                 return;
             }
-            if(polynomial1.getDegree()>=polynomial2.getDegree()) {
+            if(polynomial2.isZero())
+            {
+                new CustomPopUp(calculatorFrame,"DIVISION WITH 0 IS FORBIDDEN", emerald);
+                return;
+            }
+            if(polynomial1.getDegree()>=polynomial2.getDegree() && !polynomial2.toString().equals("0"))
+            {
                 Polynomial[] res = Operation.division(polynomial1, polynomial2);
                 result.setText(res[0].toString());
                 remainder.setText(res[1].toString());

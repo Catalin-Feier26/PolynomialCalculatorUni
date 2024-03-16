@@ -5,7 +5,7 @@ import java.awt.*;
 public class CustomPopUp extends JDialog {
     public CustomPopUp(JFrame parent, String message, Color color)
     {
-        super(parent,message,true);
+        super(parent,"pop-up-ad",true);
 
         JLabel label = new JLabel("<html><div style='text-align: center; width: 200px;'>" + message + "</div></html>");
         label.setHorizontalAlignment(JLabel.CENTER);
