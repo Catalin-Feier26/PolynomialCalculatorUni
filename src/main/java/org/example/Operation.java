@@ -36,6 +36,7 @@ public class Operation {
         return result;
     }
     public static Polynomial multiplication(Polynomial poli1, Polynomial poli2) {
+
         HashMap<Integer, Double> mult = new HashMap<>();
         for (int power1 : poli1.getPolynom().keySet())
         {

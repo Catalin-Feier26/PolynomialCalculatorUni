@@ -4,9 +4,11 @@ import java.util.regex.*;
 public class Polynomial
 {
     private HashMap<Integer,Double> polynom;
+    public int degree;
     public Polynomial()
     {
         polynom=new HashMap<>();
+        degree=0;
     }
     public HashMap<Integer,Double> getPolynom()
     {
@@ -16,6 +18,7 @@ public class Polynomial
     public void setPolynom(HashMap<Integer, Double> polynom)
     {
         this.polynom = polynom;
+        degree=getMaxPower();
     }
 
     public void readPolynomial(String input) {
@@ -62,11 +65,12 @@ public class Polynomial
             }
              polynom.put(power,polynom.getOrDefault(power, 0.0) + coefficient);
         }
+        degree=getMaxPower();
     }
 
     public void printPolynomial()
     {
-        System.out.println(this);
+        System.out.println(this + " with the Degree: " + this.degree);
     }
     public String toString(){
         String result="";
@@ -138,7 +142,14 @@ public class Polynomial
         String pat="([+-]?\\d*(\\.\\d*)?(x)?(\\^\\d+)?)+";
         Pattern pattern= Pattern.compile(pat);
         Matcher matcher= pattern.matcher(input);
-
         return matcher.matches();
+    }
+    public Integer getMaxPower()
+    {
+        Integer maxPower=0;
+        for(Integer power: polynom.keySet())
+            if(power>=maxPower)
+                maxPower=power;
+        return maxPower;
     }
 }
