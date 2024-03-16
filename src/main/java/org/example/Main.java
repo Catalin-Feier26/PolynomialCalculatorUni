@@ -7,8 +7,8 @@ public class Main {
 
         Polynomial polynomial1=new Polynomial();
         Polynomial polynomial2=new Polynomial();
-        String input1 = "x^3 - 2x^2 + 6x - 5";
-        String input2="x^2 - 1";
+        String input1 = "5x^2+3x-2";
+        String input2="x+1";
         polynomial1.readPolynomial(input1);
         polynomial2.readPolynomial(input2);
 

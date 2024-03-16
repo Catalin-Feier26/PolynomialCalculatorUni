@@ -8,11 +8,15 @@ public class Operation {
         {
             double cuff=poli1.getPolynom().get(power);
             additionResult.put(power, additionResult.getOrDefault(power, 0.0) + cuff);
+            if(additionResult.get(power)==0)
+                additionResult.remove(power);
         }
         for(int power: poli2.getPolynom().keySet())
         {
             double coefficient=poli2.getPolynom().get(power);
             additionResult.put(power,additionResult.getOrDefault(power,0.0) + coefficient);
+            if(additionResult.get(power)==0)
+                additionResult.remove(power);
         }
         Polynomial result=new Polynomial();
         result.setPolynom(additionResult);
@@ -25,11 +29,15 @@ public class Operation {
         {
             double coefficient=poli1.getPolynom().get(power);
             subtractionResult.put(power,subtractionResult.getOrDefault(power, 0.0) + coefficient);
+            if(subtractionResult.get(power)==0.0)
+                subtractionResult.remove(power);
         }
         for(int power: poli2.getPolynom().keySet())
         {
             double coefficient=poli2.getPolynom().get(power);
             subtractionResult.put(power,subtractionResult.getOrDefault(power, 0.0) - coefficient);
+            if(subtractionResult.get(power)==0.0)
+                subtractionResult.remove(power);
         }
         Polynomial result=new Polynomial();
         result.setPolynom(subtractionResult);

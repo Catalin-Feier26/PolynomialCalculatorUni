@@ -75,59 +75,59 @@ public class Polynomial
     }
     public String toString(){
         String result="";
-        for(Integer power: this.polynom.keySet())
-        {
-            double coefficient=polynom.get(power);
-            if(power==0){
-                if(result.isEmpty())
-                    result=result.concat(checkCoefficient(coefficient));
-                else{
-                    if(coefficient>0)
-                        result=result.concat("+"+checkCoefficient(coefficient));
-                    else
-                        result=result.concat(checkCoefficient(coefficient));
-                }
-            }
-            else if(power==1){
-                if(result.isEmpty())
-                    if(!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
-                        result=result.concat(checkCoefficient(coefficient)+"x");
-                    else
-                        if(checkCoefficient(coefficient).contains("-"))
-                            result=result.concat("-x");
+        if(!this.polynom.isEmpty()) {
+            for (Integer power : this.polynom.keySet()) {
+                double coefficient = polynom.get(power);
+                if (power == 0) {
+                    if (result.isEmpty())
+                        result = result.concat(checkCoefficient(coefficient));
+                    else {
+                        if (coefficient > 0)
+                            result = result.concat("+" + checkCoefficient(coefficient));
                         else
-                            result=result.concat("x");
-                else{
-                    if(coefficient==1)
-                        result=result.concat("+x");
-                    if(coefficient==-1)
-                        result=result.concat("-x");
-                    if(coefficient > 0 && coefficient != 1)
-                        result=result.concat("+"+checkCoefficient(coefficient)+"x");
-                    if(coefficient<0 && coefficient != -1)
-                        result=result.concat(checkCoefficient(coefficient)+"x");
-                }
-            }else{
-                if(result.isEmpty())
-                    if(!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
-                        result=result.concat(checkCoefficient(coefficient)+"x^"+power);
-                    else
-                    if(checkCoefficient(coefficient).contains("-"))
-                        result=result.concat("-x^"+power);
-                    else
-                        result=result.concat("x^"+power);
-                else{
-                    if(coefficient==1)
-                        result=result.concat("+x^"+power);
-                    if(coefficient==-1)
-                        result=result.concat("-x^"+power);
-                    if(coefficient>0 && coefficient!=1)
-                        result=result.concat("+"+checkCoefficient(coefficient)+"x^"+power);
-                    if(coefficient<0 && coefficient!=-1)
-                        result=result.concat(checkCoefficient(coefficient)+"x^"+power);
+                            result = result.concat(checkCoefficient(coefficient));
+                    }
+                } else if (power == 1) {
+                    if (result.isEmpty())
+                        if (!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
+                            result = result.concat(checkCoefficient(coefficient) + "x");
+                        else if (checkCoefficient(coefficient).contains("-"))
+                            result = result.concat("-x");
+                        else
+                            result = result.concat("x");
+                    else {
+                        if (coefficient == 1)
+                            result = result.concat("+x");
+                        if (coefficient == -1)
+                            result = result.concat("-x");
+                        if (coefficient > 0 && coefficient != 1)
+                            result = result.concat("+" + checkCoefficient(coefficient) + "x");
+                        if (coefficient < 0 && coefficient != -1)
+                            result = result.concat(checkCoefficient(coefficient) + "x");
+                    }
+                } else {
+                    if (result.isEmpty())
+                        if (!checkCoefficient(coefficient).equals("1") && !checkCoefficient(coefficient).equals("-1"))
+                            result = result.concat(checkCoefficient(coefficient) + "x^" + power);
+                        else if (checkCoefficient(coefficient).contains("-"))
+                            result = result.concat("-x^" + power);
+                        else
+                            result = result.concat("x^" + power);
+                    else {
+                        if (coefficient == 1)
+                            result = result.concat("+x^" + power);
+                        if (coefficient == -1)
+                            result = result.concat("-x^" + power);
+                        if (coefficient > 0 && coefficient != 1)
+                            result = result.concat("+" + checkCoefficient(coefficient) + "x^" + power);
+                        if (coefficient < 0 && coefficient != -1)
+                            result = result.concat(checkCoefficient(coefficient) + "x^" + power);
+                    }
                 }
             }
         }
+        else
+            result="0";
         return result;
     }
     private String checkCoefficient(double c)
