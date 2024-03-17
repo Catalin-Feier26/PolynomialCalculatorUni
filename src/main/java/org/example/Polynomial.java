@@ -16,12 +16,13 @@ public class Polynomial
         return polynom;
     }
 
+    //sets the hashMap of a polynomial
     public void setPolynom(HashMap<Integer, Double> polynom)
     {
         this.polynom = polynom;
         degree=getMaxPower();
     }
-
+    //Reading the polynomial from a string
     public void readPolynomial(String input) {
         HashMap<Integer,Double> readPolynom=new HashMap<>();
         input=input.replace(" ","");
@@ -70,7 +71,7 @@ public class Polynomial
         this.polynom=readPolynom;
         degree=getMaxPower();
     }
-
+    // toString method for a more elegant way to display the polynomial
     public String toString(){
         String result="";
         HashMap<Integer, Double> aux= new HashMap<>(this.polynom);
@@ -131,6 +132,7 @@ public class Polynomial
             result="0";
         return result;
     }
+    //Getting the maximum power from a polynomial hashMap
     private int getMax(HashMap<Integer,Double> map)
     {
         int max=0;
@@ -139,6 +141,7 @@ public class Polynomial
                 max=pow;
         return max;
     }
+    //Transforms a double like 1.0 into 1, used for the toString method.
     private String checkCoefficient(double c)
     {
         if(c==0)
@@ -147,6 +150,7 @@ public class Polynomial
             return String.valueOf((int) c);
         return String.valueOf(c);
     }
+    //Validates the input via a regex check
     public static Boolean checkValidInput(String input)
     {
         input=input.replace(" ","");
@@ -155,6 +159,7 @@ public class Polynomial
         Matcher matcher= pattern.matcher(input);
         return matcher.matches();
     }
+    //Getting the degree of the polynomial
     public Integer getMaxPower()
     {
         Integer maxPower=0;
@@ -163,6 +168,7 @@ public class Polynomial
                 maxPower=power;
         return maxPower;
     }
+    //Method to check if the polynomial is 0. (used to check for division);
     public Boolean isZero()
     {
         Boolean assumption = true;

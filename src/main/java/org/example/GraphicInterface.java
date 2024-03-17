@@ -149,6 +149,7 @@ public class GraphicInterface extends JFrame{
 
         calculatorPanel= createCalculatorPanel(plusButton,subButton,multButton,divButton,derivButton,intButton);
         calculatorFrame.add(calculatorPanel, BorderLayout.CENTER);
+        calculatorFrame.setLocationRelativeTo(null);
         calculatorFrame.setVisible(true);
     }
 

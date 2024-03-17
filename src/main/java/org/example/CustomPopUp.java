@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CustomPopUp extends JDialog {
+    //Custom message dialog to display messages prettier
     public CustomPopUp(JFrame parent, String message, Color color)
     {
         super(parent,"pop-up-ad",true);

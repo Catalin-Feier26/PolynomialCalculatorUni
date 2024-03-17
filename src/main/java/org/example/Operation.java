@@ -1,6 +1,7 @@
 package org.example;
 import java.util.HashMap;
 public class Operation {
+    //All the operations are self-explanatory, they do what the method is called.
     public static Polynomial addition(Polynomial poli1, Polynomial poli2)
     {
         HashMap<Integer,Double> additionResult=new HashMap<>();
