@@ -66,13 +66,18 @@ public class Operation {
         return result;
     }
 
-    public static Polynomial[] division(Polynomial numerator, Polynomial denominator)
+    public static Polynomial[] division(Polynomial numerator, Polynomial denominator) throws ArithmeticException, IllegalArgumentException
     {
         Polynomial quotient= new Polynomial();
         Polynomial remainder= new Polynomial();
         if(numerator.getDegree()<denominator.getDegree())
-            return new Polynomial[] {quotient,remainder};
-
+        {
+            throw new IllegalArgumentException("Wrong degree");
+        }
+        if(denominator.isZero())
+        {
+            throw new ArithmeticException("Expect a denominator different from 0");
+        }
         Polynomial copyNumerator= new Polynomial();
         copyNumerator=numerator;
             while (copyNumerator.getDegree() >= denominator.getDegree()) {
